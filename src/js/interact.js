@@ -155,7 +155,7 @@ function isInChI(txt_inhalt, matchflag) {}
 
 //choos flags for each colum
 function ColFlagCheck(){
-  console.log("Now your running the test function.");
+  document.getElementById("checkFlagArea").style.display = "";
   let titleline = getTitleLine(InputFlag = "coord");
   let preset_flag = document.createElement("select");
   let first_flag = document.createElement("option");
