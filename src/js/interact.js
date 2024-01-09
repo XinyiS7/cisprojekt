@@ -170,7 +170,8 @@ function ColFlagCheck(){
   first_flag.value = "noChoice";
   first_flag.text = "choose a flag";
   let flag_list = new Array(["name", "distance information", "numerical additional information", "non-numericial additional information"])
-  flag_list.forEach(flag){
+  for(let i = 0; i<4;i++){
+    let flag = flag_list[i];
     let _option = document.createElement("option");
     _option.value = flag;
     _option.text = flag;
