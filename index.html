@@ -64,6 +64,26 @@
         oninput="showDropdowns()"
       ></textarea>
 
+      <!-- Column flag cheker -->
+      <div id="checkFlagArea" style="display: none;">
+        <p id="flag_guide">
+
+        </p>
+        <table id="checkTable" style="border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th>Colum number</th>
+                    <th>user defined tag</th>
+                    <th>Colum title</th>
+                </tr>
+            </thead>
+        
+            <tbody>
+        
+            </tbody>
+        </table>
+    </div>
+
       <!-- Here the funtional buttons -->
       <div>
         <!-- Formal and real button for add data -->
@@ -87,6 +107,15 @@
           <option value="Euclidean">Euclidean distance</option>
           <option value="Tanimoto">Tanimoto distance</option>
           <option value="Hamming">Hamming distance</option>
+        </select>
+
+        <select 
+          id="Scaling_alg" 
+          name="SaclingAlgorithmus" >
+          <option value="noChoice">Add scaling algorithmus</option>
+          <option value="SMACOF">SMACOF</option>
+          <option value="SciKit">SciKit-learn</option>
+          <option value="Glimmer">Glimmer</option>
         </select>
       </div>
 
