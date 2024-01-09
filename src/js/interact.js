@@ -154,28 +154,32 @@ function isSequence(txt_inhalt, matchflag) {}
 function isInChI(txt_inhalt, matchflag) {}
 
 //choos flags for each colum
-function ColFlagCheck(){
-  document.getElementById("checkFlagArea").style.display = "";
-  let titleline = getTitleLine(InputFlag = "coord");
+function flag_preset(){
   let preset_flag = document.createElement("select");
   let first_flag = document.createElement("option");
-  let checkContainer = document.getElementById("CheckContainer");
-  let checklist = document.getElementById("checkTable");
-  let dimension = titleline.length;
-  let rows = checklist.getElementsByTagName('tr');
-  while(rows.length > 1){
-      checklist.deleteRow(-1);
-  }
-
+  let flag_list = ["name", "distance information", "numerical additional information", "non-numericial additional information"];
+  
   first_flag.value = "noChoice";
   first_flag.text = "choose a flag";
-  let flag_list = new Array(["name", "distance information", "numerical additional information", "non-numericial additional information"])
+  preset_flag.appendChild(first_flag);
   for(let i = 0; i<4;i++){
     let flag = flag_list[i];
     let _option = document.createElement("option");
     _option.value = flag;
     _option.text = flag;
     preset_flag.appendChild(_option);
+  }
+  return preset_flag
+}
+function ColFlagCheck(){
+  document.getElementById("checkFlagArea").style.display = "";
+  let titleline = getTitleLine(InputFlag = "coord");
+  let checkContainer = document.getElementById("CheckContainer");
+  let checklist = document.getElementById("checkTable");
+  let dimension = titleline.length;
+  let rows = checklist.getElementsByTagName('tr');
+  while(rows.length > 1){
+      checklist.deleteRow(-1);
   }
 
   for(let d = 1; d < dimension+1; d++){
@@ -185,10 +189,10 @@ function ColFlagCheck(){
       let cell_2 = _check_tr.insertCell(1);
       let cell_3 = _check_tr.insertCell(2);
       let ColFlagSelector = CreateColFlagSelector(titleline);
-
+      let flag_menu = flag_preset();
       cell_1.textContent = 'the '+(d)+' Colum is:';
       cell_2.appendChild(ColFlagSelector);
-      cell_3.appendChild(preset_flag);
+      cell_3.appendChild(flag_menu);
   }
   checkContainer.appendChild(checklist);
 }
