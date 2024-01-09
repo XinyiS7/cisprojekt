@@ -124,7 +124,7 @@ function CreateColFlagSelector(idx=0,titleline){
       flagOption.text = titleline[i];
       ColFlagMenu.appendChild(flagOption);
   }
-  ColFlagMenu,options[idx].selected = true;
+  ColFlagMenu.options[idx].selected = true;
   return ColFlagMenu;
 }
 
@@ -189,7 +189,7 @@ function ColFlagCheck(){
       let cell_1 = _check_tr.insertCell(0);
       let cell_2 = _check_tr.insertCell(1);
       let cell_3 = _check_tr.insertCell(2);
-      let ColFlagSelector = CreateColFlagSelector(d, titleline);
+      let ColFlagSelector = CreateColFlagSelector(d-1, titleline);
       let flag_menu = flag_preset();
       cell_1.textContent = 'the '+(d)+' Colum is:';
       cell_2.appendChild(ColFlagSelector);
