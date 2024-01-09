@@ -111,7 +111,7 @@ function getTitleLine(InputFlag = "coord"){
 }
 
 /*Creat the drop-down Menu accroding to the title line */
-function CreateColFlagSelector(titleline){
+function CreateColFlagSelector(idx=0,titleline){
   console.log("creating the ColFlag selector accroding to the titleline", titleline);
   let ColFlagMenu = document.createElement("select");
   let firstOption = document.createElement("option");
@@ -124,6 +124,7 @@ function CreateColFlagSelector(titleline){
       flagOption.text = titleline[i];
       ColFlagMenu.appendChild(flagOption);
   }
+  ColFlagMenu,options[idx].selected = true;
   return ColFlagMenu;
 }
 
@@ -188,7 +189,7 @@ function ColFlagCheck(){
       let cell_1 = _check_tr.insertCell(0);
       let cell_2 = _check_tr.insertCell(1);
       let cell_3 = _check_tr.insertCell(2);
-      let ColFlagSelector = CreateColFlagSelector(titleline);
+      let ColFlagSelector = CreateColFlagSelector(d, titleline);
       let flag_menu = flag_preset();
       cell_1.textContent = 'the '+(d)+' Colum is:';
       cell_2.appendChild(ColFlagSelector);
